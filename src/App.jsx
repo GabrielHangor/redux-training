@@ -5,6 +5,7 @@ import {
   addCustomerAction,
   removeCustomerAction,
 } from './store/customerReducer';
+import { fetchCustomers } from './asyncActions/customers';
 
 function App() {
   const dispatch = useDispatch();
@@ -38,6 +39,9 @@ function App() {
           Снять со счета
         </button>
         <button onClick={() => addCustomer(prompt())}>Добавить клиента</button>
+        <button onClick={() => dispatch(fetchCustomers())}>
+          Добавить клиентов из базы
+        </button>
       </div>
       {customers.length > 0 ? (
         <div>
